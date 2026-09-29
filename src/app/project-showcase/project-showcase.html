@@ -1,0 +1,50 @@
+<section class="section-padding" id="work">
+  <div class="grid-container">
+    <div class="exp-header">
+      <span class="text-meta">03 / WORK</span>
+      <h2 class="h-section mt-1">CASE STUDIES</h2>
+    </div>
+
+    <div class="projects-wrapper mt-4">
+      
+      <article class="case-study border-top" *ngFor="let proj of projects; let i = index">
+        <div class="case-header">
+          <div class="case-number text-meta text-accent">PROJECT {{i + 1 | number:'2.0'}}</div>
+          <h3 class="case-title h-section">{{proj.title}}</h3>
+        </div>
+
+        <div class="case-visual panel-ui mt-2">
+          <!-- We simulate a sharp browser window / frame -->
+          <div class="frame-header border-bottom">
+            <div class="frame-dots"></div>
+            <div class="frame-url text-meta">{{proj.link}}</div>
+          </div>
+          <img [src]="proj.image" [alt]="proj.title" class="case-img">
+        </div>
+
+        <div class="case-details grid-12 mt-4">
+          <div class="col-span-3">
+            <span class="text-meta mb-1 block">PROBLEM</span>
+            <p class="text-body">{{proj.problem}}</p>
+          </div>
+          <div class="col-span-3">
+            <span class="text-meta mb-1 block">SOLUTION</span>
+            <p class="text-body">{{proj.solution}}</p>
+          </div>
+          <div class="col-span-3">
+            <span class="text-meta mb-1 block">STACK</span>
+            <ul class="meta-list text-body">
+              <li *ngFor="let t of proj.tech">{{t}}</li>
+            </ul>
+          </div>
+          <div class="col-span-3">
+            <span class="text-meta mb-1 block">ROLE</span>
+            <p class="text-body">{{proj.role}}</p>
+            <a [href]="proj.link" target="_blank" class="btn-editorial solid mt-2 interactive">VIEW SYSTEM</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>

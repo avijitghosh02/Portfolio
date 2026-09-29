@@ -1,38 +1,80 @@
-<section>
-    <div class="container">
-        <div class="row mt-0 mt-lg-5">
-            <div class="col-12 col-lg-7 d-flex align-items-center mb-3">
-                <div class="text-wrapper px-2">
-                    <h1 class="headings">Hi I am Avijit Ghosh</h1>
-                    <h1 class="typing-heading" id="typing-heading">Web Developer</h1>
-                    <p class="para">Turning ideas into slick, user-friendly web experiences!
-                        From clean code to cutting-edge designs, I specialize in crafting responsive websites and
-                        dynamic apps using HTML, CSS, JavaScript, Angular, and more. Let’s build something awesome
-                        together
-                    </p>
-                    <div class="d-flex align-items-center">
-                        <a class="bnt-links" href="Avijit_Ghosh_Frontend_Developer_Resume.pdf"
-                            download="Avijit_Ghosh_Frontend_Developer_Resume">
-                            <button class="btn primary-btn mt-2">Resume
-                                <i class="fa-regular fa-circle-down m-2" style="color: #000;"></i>
-                            </button>
-                        </a>
-                        <!-- <a class="bnt-links" href="#footer">
-                            <button class="btn primary-btn mt-2 m-2">Contact Me
-                                <i class="fa-solid fa-phone m-2" style="color: #000;"></i>
-                            </button>
-                        </a> -->
-                        <span class="icon-cont mt-2">
-                            <a href="https://www.linkedin.com/in/avijit-ghosh-7ba07323b/" target="_blank"><i
-                                    class="fa-brands fa-linkedin-in" style="color: #d3e97a;"></i></a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-5 img-cont d-flex">
-                <img class="img-fluid hero_img" src="Hero.jpeg" alt="">
-            </div>
+<section class="hero-section" (mousemove)="onMouseMove($event)">
+  <div class="grid-container">
+    
+    <div class="hero-layout">
+      <!-- Typography -->
+      <div class="hero-text">
+        <h1 class="h-hero">
+          BUILDING<br>
+          SOFTWARE<br>
+          FOR<br>
+          <span class="text-accent">REAL WORK.</span>
+        </h1>
+        
+        <div class="hero-meta mt-4">
+          <p class="text-body max-w-sm">
+            Executive Software Developer building internal business systems across recruitment, CRM, ERP, and operational workflows.
+          </p>
+          <div class="mt-2">
+            <a href="#experience" class="btn-editorial interactive">View Systems</a>
+          </div>
         </div>
+      </div>
+      
+      <!-- 3D Perspective Software Layers -->
+      <div class="hero-visual">
+        <div class="perspective-container">
+          <div class="system-stack" [style.transform]="'rotateX(15deg) rotateY(-20deg) translateX(' + (mouseX * 20) + 'px) translateY(' + (mouseY * 20) + 'px)'">
+            
+            <!-- Layer 1 -->
+            <div class="ui-layer layer-bottom">
+              <div class="ui-header">
+                <span class="text-meta">ERP / INVENTORY</span>
+              </div>
+              <div class="ui-body">
+                <div class="ui-line" style="width: 80%"></div>
+                <div class="ui-line" style="width: 60%"></div>
+                <div class="ui-line" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <!-- Layer 2 -->
+            <div class="ui-layer layer-middle">
+              <div class="ui-header">
+                <span class="text-meta">CRM / LEADS</span>
+              </div>
+              <div class="ui-body">
+                <div class="ui-grid">
+                  <div class="ui-box"></div>
+                  <div class="ui-box"></div>
+                </div>
+                <div class="ui-line mt-1" style="width: 100%"></div>
+              </div>
+            </div>
+            
+            <!-- Layer 3 -->
+            <div class="ui-layer layer-top">
+              <div class="ui-header">
+                <span class="text-meta text-accent">RECRUITMENT / PIPELINE</span>
+              </div>
+              <div class="ui-body">
+                <div class="ui-row">
+                  <span>Candidate</span>
+                  <span>Status</span>
+                </div>
+                <div class="ui-line mt-1"></div>
+                <div class="ui-row mt-1 text-muted">
+                  <span>A. Ghosh</span>
+                  <span>Hired</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
     </div>
+    
+  </div>
 </section>
-<hr class="mt-5">

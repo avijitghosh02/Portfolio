@@ -1,0 +1,42 @@
+<section class="section-padding" id="stack">
+  <div class="grid-container">
+    <div class="exp-header">
+      <span class="text-meta">02 / STACK</span>
+      <h2 class="h-section mt-1">EVIDENCE OF WORK</h2>
+    </div>
+
+    <div class="grid-12 stack-layout mt-4">
+      
+      <!-- Tech Columns -->
+      <div class="col-span-8 grid-12 tech-grid">
+        <div class="col-span-6 tech-group" *ngFor="let group of stack">
+          <h4 class="text-meta mb-2">{{group.category}}</h4>
+          <ul class="tech-list">
+            <li *ngFor="let tech of group.items"
+                class="interactive"
+                (mouseenter)="activeTech = tech"
+                (mouseleave)="activeTech = null"
+                [class.active]="activeTech === tech">
+              {{tech.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Connecting Output -->
+      <div class="col-span-4 output-panel border-top">
+        <div class="output-header text-meta mb-2">PROVES CAPABILITY IN</div>
+        
+        <ul class="systems-list">
+          <li *ngFor="let sys of businessSystems"
+              [class.highlight]="isSystemHighlighted(sys)">
+            {{sys}}
+          </li>
+        </ul>
+        
+        <div class="mapping-line" *ngIf="activeTech"></div>
+      </div>
+
+    </div>
+  </div>
+</section>

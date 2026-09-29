@@ -1,14 +1,96 @@
 .navbar {
-    background-color: #0a0a0a !important;
-    font-family: "Manrope", sans-serif;
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: 100;
+  padding: 1.5rem 0;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid transparent;
+  transition: padding 0.3s ease, border-color 0.3s ease;
 }
-.navbar-nav>a.nav-item{
-    color: white;
-    font-size: 1rem !important;
+
+.navbar.scrolled {
+  padding: 1rem 0;
+  border-bottom-color: var(--border-color);
 }
-.nav-brand{
-    text-decoration: none;
-    color: #d3e97a;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 2rem !important;
+
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  line-height: 1.2;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+/* Mobile */
+.mobile-toggle {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100vh;
+  background-color: var(--bg-primary);
+  z-index: 101;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-100%);
+  transition: transform 0.5s var(--ease-editorial);
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 4rem;
+}
+
+.mobile-close {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mobile-menu a {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
 }

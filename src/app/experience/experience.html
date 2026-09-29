@@ -1,0 +1,53 @@
+<section class="section-padding" id="experience">
+  <div class="grid-container">
+    <div class="exp-header">
+      <span class="text-meta">01 / EXPERIENCE</span>
+      <h2 class="h-section mt-1">SYSTEMS I WORK ON</h2>
+    </div>
+
+    <div class="systems-list mt-4">
+      <div class="system-item border-top interactive" 
+           *ngFor="let sys of systems; let i = index"
+           (click)="toggleSystem(i)"
+           [class.expanded]="activeIndex === i">
+        
+        <div class="system-row">
+          <div class="system-number text-meta">0{{i+1}}</div>
+          <h3 class="system-name h-subsection">{{sys.name}}</h3>
+          <div class="system-role text-meta">{{sys.company}} &mdash; {{sys.role}}</div>
+          <div class="system-toggle">
+            <span *ngIf="activeIndex !== i">+</span>
+            <span *ngIf="activeIndex === i">-</span>
+          </div>
+        </div>
+        
+        <div class="system-content" [style.height]="activeIndex === i ? 'auto' : '0px'">
+          <div class="content-inner grid-12">
+            
+            <div class="sys-col col-span-4">
+              <span class="text-meta text-accent mb-1 block">WHAT IT DOES</span>
+              <p class="text-body">{{sys.purpose}}</p>
+            </div>
+            
+            <div class="sys-col col-span-4">
+              <span class="text-meta text-accent mb-1 block">WORKFLOW</span>
+              <ul class="workflow-list text-body">
+                <li *ngFor="let flow of sys.workflow">{{flow}}</li>
+              </ul>
+            </div>
+            
+            <div class="sys-col col-span-4">
+              <span class="text-meta text-accent mb-1 block">TECHNOLOGY</span>
+              <div class="tech-tags mono">
+                <span *ngFor="let tech of sys.tech">{{tech}}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="border-top"></div>
+    </div>
+    
+  </div>
+</section>

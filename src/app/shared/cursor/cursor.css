@@ -1,0 +1,27 @@
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-strong);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+.cursor-dot.hovered {
+  width: 32px;
+  height: 32px;
+  background-color: var(--text-primary);
+  mix-blend-mode: normal;
+}
+
+@media (max-width: 768px) {
+  .cursor-dot {
+    display: none;
+  }
+}

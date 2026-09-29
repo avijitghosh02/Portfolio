@@ -1,0 +1,58 @@
+<section class="section-padding" id="ecosystem" (mousemove)="onMouseMove($event)">
+  <div class="container">
+    <div class="header-split">
+      <div>
+        <h2 class="section-title">Inside The Systems</h2>
+        <div class="divider"></div>
+      </div>
+      <p class="lead max-w-500 text-muted">
+        A simplified view of how different operational modules connect in the business software I build.
+      </p>
+    </div>
+
+    <div class="ecosystem-map">
+      
+      <!-- Nodes -->
+      <div class="node node-recruitment" 
+           (mouseenter)="activeSystem = 'recruitment'"
+           [class.active]="activeSystem === 'recruitment'">
+        <span class="mono text-accent">01.</span> Recruitment
+      </div>
+      
+      <div class="node node-crm" 
+           (mouseenter)="activeSystem = 'crm'"
+           [class.active]="activeSystem === 'crm'">
+        <span class="mono text-accent">02.</span> CRM
+      </div>
+      
+      <div class="node node-erp" 
+           (mouseenter)="activeSystem = 'erp'"
+           [class.active]="activeSystem === 'erp'">
+        <span class="mono text-accent">03.</span> ERP
+      </div>
+      
+      <div class="node node-ops" 
+           (mouseenter)="activeSystem = 'operations'"
+           [class.active]="activeSystem === 'operations'">
+        <span class="mono text-accent">04.</span> Operations
+      </div>
+
+      <!-- Detail Panel -->
+      <div class="detail-overlay bordered-panel" *ngIf="activeSystemData" [style.transform]="getParallax()">
+        <h3 class="mono detail-title">{{activeSystemData.title}}</h3>
+        <p class="detail-purpose">{{activeSystemData.purpose}}</p>
+        <div class="detail-meta">
+          <div>
+            <span class="text-accent mono">Role:</span>
+            <span>{{activeSystemData.role}}</span>
+          </div>
+          <div>
+            <span class="text-accent mono">Tech:</span>
+            <span>{{activeSystemData.tech}}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

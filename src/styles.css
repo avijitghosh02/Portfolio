@@ -1,77 +1,201 @@
-/* Webpixels CSS */
-@import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap');
-body{
-    background-color: #0a0a0a;
-    overflow-x: hidden;
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+  --bg-primary: #F3F0E8;
+  --bg-secondary: #E7E2D8;
+  --text-primary: #111111;
+  --text-secondary: #55524C;
+  --accent-strong: #E4572E;
+  --accent-dark: #1C1C1C;
+  --accent-muted: #8A9A5B;
+  
+  --border-color: rgba(17, 17, 17, 0.16);
+  --border-strong: #111111;
+
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  
+  --ease-editorial: cubic-bezier(0.77, 0, 0.175, 1);
 }
-html{
-    overflow-x: hidden;
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.headings{
-    color: #ffffff;
-    font-size: 4.25rem !important;
-    font-family: "Bebas Neue", sans-serif;
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
-.subheadings{
-    color: #ffffff;
-    font-size: 1.25rem !important;
-    font-family: "Manrope", sans-serif;
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
-.para{
-    color: #c7c7c7;
-    font-family: "Manrope", sans-serif;
-    /* white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; */
+
+ul {
+  list-style: none;
 }
-.primary-btn{
-    width: 150px !important;
-    background-color: #d3e97a;
-    border-radius: 100px;
-    color: #0a0a0a;
-    font-family: "Manrope", sans-serif;
-    transition: .3s all;
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
-.primary-btn:hover{
-    background-color: #222222;
-    border: 1px solid #d3e97a;
-    color: white !important;
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
 }
-hr{
-    background-color: #606060;
-    height: 3px !important;
+
+/* Typography Rules */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  text-transform: uppercase;
 }
-span{
-    font-family: "Manrope", sans-serif;
+
+.h-hero {
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  font-size: clamp(4rem, 10vw, 9rem);
 }
-.underline{
-    color: #d3e97a;
+
+.h-section {
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-size: clamp(2.5rem, 5vw, 5rem);
 }
-.icon-cont{
-    background-color: #222222;
-    margin-left: 20px;
-    padding: 10px 16px;
-    border-radius: 50%;
+
+.h-subsection {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-size: 2rem;
 }
-.footerheadings{
-    color: #ffffff;
-    font-size: 3.85rem !important;
-    font-family: "Bebas Neue", sans-serif;
-    word-break: break-all;
+
+.text-body {
+  font-weight: 400;
+  line-height: 1.55;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
 }
-@media(max-width: 768px){
-    .footerheadings{
-        font-size: 2.25rem !important;
-        word-break: break-all;
-    }
+
+.text-meta {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--text-primary);
 }
-.modal-content{
-    background-color: #0a0a0a;
-    border: 1px solid #d3e97a;
+
+.text-accent {
+  color: var(--accent-strong);
 }
-.modal-header .modal-title{
-    color: #d3e97a;
-    font-family: "Bebas Neue", sans-serif !important;
+
+/* Editorial Grid System */
+.grid-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+/* Sections & Layout */
+.section-padding {
+  padding: 8rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--border-color);
+}
+.border-top {
+  border-top: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
+  border-radius: 0; /* Sharp edges */
+  background: transparent;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-editorial:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.btn-editorial.solid {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+.btn-editorial.solid:hover {
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+/* UI Panels */
+.panel-ui {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px; /* Minimal radius */
+  box-shadow: none; /* No glow, no shadows */
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-left: 1px solid var(--border-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-strong);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-strong);
+  color: #fff;
+}
+
+/* Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }

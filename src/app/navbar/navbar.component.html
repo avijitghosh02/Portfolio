@@ -1,18 +1,33 @@
-<nav class="navbar navbar-expand-lg px-0 py-1">
-    <div class="container-xl">
-      <a href="#" class="nav-brand">
-        Avijit
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-item nav-link" href="#" aria-current="page">Home</a>
-          <a class="nav-item nav-link" href="#aboutme">About me</a>
-          <a class="nav-item nav-link" href="#projects">Projects</a>
-          <a class="nav-item nav-link" href="#footer">Contact me</a>
-        </div>
-      </div>
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="grid-container navbar-inner">
+    
+    <div class="nav-brand text-meta">
+      RAJ<br>SOFTWARE ENGINEER
     </div>
-  </nav>
+    
+    <ul class="nav-links">
+      <li><a href="#experience" class="interactive"><span class="text-accent">01</span> EXPERIENCE</a></li>
+      <li><a href="#stack" class="interactive"><span class="text-accent">02</span> STACK</a></li>
+      <li><a href="#work" class="interactive"><span class="text-accent">03</span> WORK</a></li>
+      <li><a href="#about" class="interactive"><span class="text-accent">04</span> ABOUT</a></li>
+      <li><a href="#contact" class="interactive"><span class="text-accent">05</span> CONTACT</a></li>
+    </ul>
+
+    <button class="mobile-toggle interactive" (click)="toggleMenu()">
+      MENU
+    </button>
+  </div>
+  
+  <div class="mobile-menu" [class.open]="menuOpen">
+    <div class="mobile-header">
+      <button class="mobile-close interactive" (click)="toggleMenu()">CLOSE</button>
+    </div>
+    <ul>
+      <li><a href="#experience" (click)="toggleMenu()"><span class="text-accent">01</span> EXPERIENCE</a></li>
+      <li><a href="#stack" (click)="toggleMenu()"><span class="text-accent">02</span> STACK</a></li>
+      <li><a href="#work" (click)="toggleMenu()"><span class="text-accent">03</span> WORK</a></li>
+      <li><a href="#about" (click)="toggleMenu()"><span class="text-accent">04</span> ABOUT</a></li>
+      <li><a href="#contact" (click)="toggleMenu()"><span class="text-accent">05</span> CONTACT</a></li>
+    </ul>
+  </div>
+</nav>
